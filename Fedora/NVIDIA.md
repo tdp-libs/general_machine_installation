@@ -3,7 +3,7 @@
 ```
 wget https://developer.download.nvidia.com/compute/cuda/repos/fedora29/x86_64/cuda-repo-fedora29-10.1.105-1.x86_64.rpm
 rpm -i cuda-repo-fedora29-10.1.105-1.x86_64.rpm
-dnf install cuda -y
+dnf --disablerepo="rpmfusion-nonfree*" install -y cuda
 
 ```
 
