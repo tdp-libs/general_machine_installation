@@ -14,5 +14,22 @@ cp cuda/lib64/* /usr/local/cuda-10.1/lib64/.
 
 ```
 
+You may also want to edit ```/etc/sysconfig/grub``` and change this:
+```
+GRUB_CMDLINE_LINUX="rd.driver.blacklist=nouveau nouveau.modeset=0"
+
+```
+```
+grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+
+```
+
+
 ## Reboot
 You will need to reboot so that the NVIDIA kernel module gets loaded before trying to use CUDA.
+
+If GUI does not start:
+```
+ln -snf /lib/systemd/system/graphical.target /etc/systemd/system/default.target
+
+```
