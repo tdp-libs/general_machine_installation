@@ -22,7 +22,7 @@ dnf -y update
 dnf install -y firefox evince gedit nano ghex pwgen ark
 
 dnf groupinstall -y "Development Tools"
-dnf install -y gcc-c++ meld git svn mercurial wget screen cmake
+dnf install -y gcc-c++ meld git svn mercurial wget screen cmake git-cola git-lfs
 dnf install -y ncurses-devel zlib-devel openssl openssl-devel mesa-libGL mesa-libGL-devel texlive-latex texlive-latex-bin boost-devel freeimage freeimage-devel glm-devel
 dnf install -y "perl(Data::Dumper)" "perl(Thread::Queue)"
 dnf install -y mesa-libGLES-devel mesa-libEGL-devel
@@ -57,3 +57,46 @@ sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.micros
 
 dnf check-update
 dnf install -y code
+
+# Video, VLC, ffmpeg, OpenCV 
+dnf install -y \
+    yasm \
+    pkg-config \
+    curl \
+    python-opencv \
+    gstreamer1-devel \
+    gstreamer1-libav \
+    gstreamer1-plugins-base-devel \
+    gstreamer1-plugins-base-devel \
+    gstreamer1-plugins-bad-free-devel \
+    gstreamer1-plugins-bad-nonfree \
+    gtk2-devel \
+    libzip-devel \
+    vlc \
+    vlc-devel \
+    vlc-core \
+    vlc-extras \
+    python-devel \
+    python-numpy \
+    python3-devel \
+    python3-numpy \
+    libjpeg-devel \
+    libtiff-devel \
+    atlas-devel \
+    atlas-static \
+    libpq-devel \
+    swig \
+    pulseaudio-libs-devel \
+    ffmpeg \
+    ffmpeg-libs \
+    ffmpeg-devel \
+    libavdevice
+
+# PostgreSQL
+dnf install -y \
+    postgresql \
+    postgresql-devel \
+    postgresql-odbc \
+    postgresql-jdbc \
+    qt-postgresql \
+    qt5-qtbase-postgresql
