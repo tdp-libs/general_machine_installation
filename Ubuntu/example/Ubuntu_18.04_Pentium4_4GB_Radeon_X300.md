@@ -42,6 +42,9 @@ apt install -y libfreeimage-dev
 apt-file find SDL.h
 apt install -y libsdl2-dev
 
+apt-file find ft2build.h
+apt install -y libfreetype6-dev
+
 ```
 Once those packages were install the program buit and ran but OpenGL was clearly broke. The following command revealed that this video card only supported up to 'OpenGL ES 2.0' but tdp-libs were trying to use ES 3.
 ```
