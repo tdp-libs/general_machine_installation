@@ -1,33 +1,15 @@
 #!/bin/bash
 set -xe
 
-# Common Development
 apt update -y
-apt install -y \
-    software-properties-common \
-    apt-transport-https \
-    xubuntu-desktop \
-    build-essential \
-    g++ \
-    yasm \
-    checkinstall \
-    pkg-config \
-    gfortran \
-    dkms \
-    git \
-    git-lfs \
-    git-cola \
-    cmake \
-    meld \
-    wget \
-    curl
+apt upgrade -y
 
 # Video, VLC, ffmpeg, OpenCV 
 apt install -y \
     freeglut3 \
     freeglut3-dev \
     libxi-dev \
-    libxmu-dev \ 
+    libxmu-dev \
     python-opencv \
     gstreamer1.0-plugins-base \
     gstreamer1.0-plugins-good \
@@ -59,13 +41,8 @@ apt install -y \
     libpulse-mainloop-glib0
 
 echo "deb http://security.ubuntu.com/ubuntu xenial-security main" | tee -a /etc/apt/sources.list
-apt-get -y update
+apt update -y
 apt install -y libjasper-dev
-
-# Graphics
-apt install -y \
-    kolourpaint4 \
-    inkscape
 
 # MKL
 # https://software.intel.com/en-us/articles/installing-intel-free-libs-and-python-apt-repo
@@ -80,11 +57,5 @@ apt install -y \
     intel-daal-2019.4-070 \
     intel-mpi-2019.4-070
 
-# VS Code
-wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
-add-apt-repository -y "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-apt update -y
-apt install -y code
-
-apt upgrade -y
 apt autoremove -y
+rm -f GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
