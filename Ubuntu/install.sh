@@ -26,7 +26,8 @@ apt install -y \
     cmake \
     meld \
     wget \
-    curl
+    curl \
+    parallel
 
 # Graphics
 apt install -y \
