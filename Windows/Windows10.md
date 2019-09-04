@@ -4,6 +4,14 @@ Manually install git to a path that does not contain spaces!
 
 https://git-scm.com/download/win
 
+```
+ssh-keygen
+
+```
+
+## Install VS Code
+https://code.visualstudio.com/download#
+
 ## Install Chocolatey
 https://chocolatey.org/docs/installation
 
@@ -11,6 +19,8 @@ https://chocolatey.org/docs/installation
 ```
 choco install -y cmake.install --pre --installargs '"ADD_CMAKE_TO_PATH=System"'
 choco install -y make
+choco install RocketDock
+choco install classic-shell
 
 ```
 
