@@ -36,3 +36,9 @@ Extract to sensible location.
 https://www.libsdl.org/download-2.0.php
 
 Extract x32 and x64 to sensible location.
+
+## Visual Studio
+Download and install visual studio starting with the oldest version that you require.
+
+## Qt Creator
+Download and install Qt Creator.
