@@ -3,7 +3,7 @@
 * [Fedora](https://github.com/tdp-libs/general_machine_installation/blob/master/Fedora/README.md)
 * [Ubuntu](https://github.com/tdp-libs/general_machine_installation/blob/master/Ubuntu/README.md)
 * [Mac](https://github.com/tdp-libs/general_machine_installation/blob/master/Mac/README.md)
-* [Windows 10](https://github.com/tdp-libs/general_machine_installation/blob/master/Windows/README.md)
+* [Windows](https://github.com/tdp-libs/general_machine_installation/blob/master/Windows/README.md)
 
 
 ## Libraries
