@@ -19,10 +19,11 @@ fi
 
 dnf -y update
 
-dnf install -y firefox evince gedit nano ghex pwgen ark
+dnf install -y firefox evince gedit nano ghex pwgen ark parallel
 
 dnf groupinstall -y "Development Tools"
 dnf install -y gcc-c++ meld git svn mercurial wget screen cmake git-cola git-lfs
+dnf install -y SDL2 SDL2-devel
 dnf install -y ncurses-devel zlib-devel openssl openssl-devel mesa-libGL mesa-libGL-devel texlive-latex texlive-latex-bin boost-devel freeimage freeimage-devel glm-devel
 dnf install -y "perl(Data::Dumper)" "perl(Thread::Queue)"
 dnf install -y mesa-libGLES-devel mesa-libEGL-devel
