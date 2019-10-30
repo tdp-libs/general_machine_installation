@@ -33,3 +33,115 @@ If GUI does not start:
 ln -snf /lib/systemd/system/graphical.target /etc/systemd/system/default.target
 
 ```
+
+# Install docker
+Optional step to install NVIDIA docker.
+
+## Get NVIDIA docker 
+https://github.com/NVIDIA/nvidia-docker/issues/706#issuecomment-382578153
+
+```
+mkdir -p /var/lib/nvidia-docker-repo 
+cd /var/lib/nvidia-docker-repo
+git clone -b gh-pages https://github.com/NVIDIA/libnvidia-container.git
+git clone -b gh-pages https://github.com/NVIDIA/nvidia-container-runtime.git
+git clone -b gh-pages https://github.com/NVIDIA/nvidia-docker.git
+
+```
+
+### List the supported versions of docker
+```
+ls -l nvidia-container-runtime/centos7/x86_64/
+
+```
+
+## Get a supported version of docker latest version of docker
+https://docs.docker.com/install/linux/docker-ce/fedora/
+
+```
+dnf install -y dnf-plugins-core
+
+#I could not get NVIDIA docker working with Fedora docker-ce
+#  dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+#Instead CentOS seems to work
+dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+```
+
+### List the available versions of docker
+```
+dnf list docker-ce  --showduplicates | sort -r
+dnf list docker-ce-cli  --showduplicates | sort -r
+
+```
+
+### Install a version of docker that is supported by nvidia-docker
+```
+dnf install -y docker-ce-3:18.09.6-3.el7 docker-ce-cli-1:18.09.6-3.el7 containerd.io
+
+systemctl start docker
+docker run hello-world
+systemctl enable docker
+
+usermod -aG docker tom
+
+```
+
+## Install NVIDIA docker
+```
+cd /var/lib/nvidia-docker-repo
+rpm --import /var/lib/nvidia-docker-repo/nvidia-docker/gpgkey
+rpm -i libnvidia-container/centos7/x86_64/libnvidia-container1-1.0.5-1.x86_64.rpm 
+rpm -i libnvidia-container/centos7/x86_64/libnvidia-container-tools-1.0.5-1.x86_64.rpm 
+rpm -i nvidia-container-runtime/centos7/x86_64/nvidia-container-runtime-hook-1.4.0-2.x86_64.rpm 
+
+```
+
+### Add hooks that match the docker version installed
+```
+docker --version
+
+rpm -i nvidia-container-runtime/centos7/x86_64/nvidia-container-runtime-2.0.0-3.docker18.09.6.x86_64.rpm 
+rpm -i nvidia-docker/centos7/x86_64/nvidia-docker2-2.0.3-3.docker18.09.6.ce.noarch.rpm 
+
+systemctl restart docker
+systemctl enable docker
+
+```
+
+### Run bash in NVIDIA docker
+```
+docker run -it --runtime=nvidia --rm nvidia/cuda:10.1-base bash
+
+```
+
+```
+# Does this run?
+nvidia-smi
+
+# If not does this fix it?
+ldconfig
+nvidia-smi
+
+```
+
+### Make NVIDIA docker the default
+```nano /etc/docker/daemon.json``` and set default-runtime to nvidia.
+```
+{
+    "default-runtime": "nvidia",
+    "runtimes": {
+        "nvidia": {
+            "path": "nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    }
+}
+
+```
+
+```
+systemctl restart docker
+docker run --rm nvidia/cuda:10.1-base nvidia-smi
+
+```
