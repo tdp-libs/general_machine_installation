@@ -77,7 +77,7 @@ dnf list docker-ce-cli  --showduplicates | sort -r
 
 ### Install a version of docker that is supported by nvidia-docker
 ```
-dnf install -y docker-ce-3:18.09.6-3.el7 docker-ce-cli-1:18.09.6-3.el7 containerd.io
+dnf install -y docker-ce-3:18.09.6-3.el7 docker-ce-cli-1:18.09.6-3.el7 containerd.io docker-compose
 
 systemctl start docker
 docker run hello-world
