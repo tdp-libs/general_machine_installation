@@ -15,6 +15,7 @@ docker run \
     -v "/home/tom/projects:/home/tom/projects:rw" \
     -v "/home/tom/.Xauthority:/home/tom/.Xauthority:rw" \
     -v "/home/tom/.config.ubuntu_18.04_dev:/home/tom/.config:rw" \
+    -v "/home/tom/.ssh:/home/tom/.ssh:ro" \
     ubuntu_18.04_dev \
     bash
 
@@ -29,6 +30,7 @@ docker run \
     -v "/home/tom/projects:/home/tom/projects:rw" \
     -v "/home/tom/.Xauthority:/home/tom/.Xauthority:rw" \
     -v "/home/tom/.config.ubuntu_18.04_dev:/home/tom/.config:rw" \
+    -v "/home/tom/.ssh:/home/tom/.ssh:ro" \
     ubuntu_18.04_dev \
     qtcreator
 
