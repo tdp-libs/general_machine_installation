@@ -101,3 +101,4 @@ dnf install -y \
     postgresql-jdbc \
     qt-postgresql \
     qt5-qtbase-postgresql
+
