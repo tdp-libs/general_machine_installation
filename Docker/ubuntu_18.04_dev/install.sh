@@ -5,6 +5,27 @@ apt update -y
 
 export DEBIAN_FRONTEND=noninteractive
 
+# NVIDIA OpenGL
+dpkg --add-architecture i386
+apt update -y
+apt install -y --no-install-recommends \
+    libxau6 libxau6:i386 \
+    libxdmcp6 libxdmcp6:i386 \
+    libxcb1 libxcb1:i386 \
+    libxext6 libxext6:i386 \
+    libx11-6 libx11-6:i386  \
+    libglvnd0 libglvnd0:i386 \
+	libgl1 libgl1:i386 \
+	libglx0 libglx0:i386 \
+	libegl1 libegl1:i386 \
+	libgles2 libgles2:i386 \
+    pkg-config \
+    libglvnd-dev libglvnd-dev:i386 \
+	libgl1-mesa-dev libgl1-mesa-dev:i386 \
+	libegl1-mesa-dev libegl1-mesa-dev:i386 \
+	libgles2-mesa-dev libgles2-mesa-dev:i386 \
+    mesa-utils
+
 # Common Development
 apt install -y \
     software-properties-common \
@@ -21,7 +42,12 @@ apt install -y \
     cmake \
     wget \
     curl \
-    parallel
+    parallel \
+    nano \
+    libfreeimage-dev \
+    libsdl2-dev \
+    libfreetype6-dev \
+    libboost-all-dev
 
 # Video, VLC, ffmpeg, OpenCV 
 apt install -y \
@@ -80,4 +106,4 @@ apt install -y gedit qtcreator qt5-default qt5-doc qtbase5-examples qtbase5-doc-
 
 apt autoremove -y
 rm -f GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
-
+rm -rf /var/lib/apt/lists/*
