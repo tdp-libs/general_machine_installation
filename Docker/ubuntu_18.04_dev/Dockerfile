@@ -8,8 +8,12 @@ VOLUME ["/home/tom/projects","/home/tom/.config","/home/tom/.ssh"]
 
 COPY 10_nvidia.json /usr/share/glvnd/egl_vendor.d/10_nvidia.json
 COPY install.sh /root/
+COPY install_cmake.sh /root/
+COPY install_boost.sh /root/
 
 RUN bash -c /root/install.sh
+RUN bash -c /root/install_cmake.sh
+RUN bash -c /root/install_boost.sh
 
 RUN echo "/usr/local/nvidia/lib" >> /etc/ld.so.conf.d/nvidia.conf && \
     echo "/usr/local/nvidia/lib64" >> /etc/ld.so.conf.d/nvidia.conf

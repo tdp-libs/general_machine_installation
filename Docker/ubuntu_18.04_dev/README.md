@@ -22,6 +22,9 @@ docker run \
     --env="DISPLAY" \
     --net=host \
     --ipc=host \
+    --cap-add=SYS_PTRACE \
+    --security-opt seccomp=unconfined \
+    -v "/mnt:/mnt:rw" \
     -v "/home/tom/projects:/home/tom/projects:rw" \
     -v "/home/tom/.Xauthority:/home/tom/.Xauthority:rw" \
     -v "/home/tom/.config.ubuntu_18.04_dev:/home/tom/.config:rw" \
@@ -29,7 +32,6 @@ docker run \
     ubuntu_18.04_dev \
     bash
 
-#    -v "/tmp/.X11-unix:/tmp/.X11-unix" \
 ```
 
 ## Run bash
@@ -47,6 +49,9 @@ docker run \
     --env="DISPLAY" \
     --net=host \
     --ipc=host \
+    --cap-add=SYS_PTRACE \
+    --security-opt seccomp=unconfined \
+    -v "/mnt:/mnt:rw" \
     -v "/home/tom/projects:/home/tom/projects:rw" \
     -v "/home/tom/.Xauthority:/home/tom/.Xauthority:rw" \
     -v "/home/tom/.config.ubuntu_18.04_dev:/home/tom/.config:rw" \
@@ -70,6 +75,9 @@ docker run \
     --env="DISPLAY" \
     --net=host \
     --ipc=host \
+    --cap-add=SYS_PTRACE \
+    --security-opt seccomp=unconfined \
+    -v "/mnt:/mnt:rw" \
     -v "/home/tom/projects:/home/tom/projects:rw" \
     -v "/home/tom/.Xauthority:/home/tom/.Xauthority:rw" \
     -v "/home/tom/.config.ubuntu_18.04_dev:/home/tom/.config:rw" \

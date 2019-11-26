@@ -39,15 +39,13 @@ apt install -y \
     dkms \
     git \
     git-lfs \
-    cmake \
     wget \
     curl \
     parallel \
     nano \
     libfreeimage-dev \
     libsdl2-dev \
-    libfreetype6-dev \
-    libboost-all-dev
+    libfreetype6-dev
 
 # Video, VLC, ffmpeg, OpenCV 
 apt install -y \
