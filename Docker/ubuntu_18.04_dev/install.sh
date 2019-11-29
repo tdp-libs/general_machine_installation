@@ -15,15 +15,15 @@ apt install -y --no-install-recommends \
     libxext6 libxext6:i386 \
     libx11-6 libx11-6:i386  \
     libglvnd0 libglvnd0:i386 \
-	libgl1 libgl1:i386 \
-	libglx0 libglx0:i386 \
-	libegl1 libegl1:i386 \
-	libgles2 libgles2:i386 \
+    libgl1 libgl1:i386 \
+    libglx0 libglx0:i386 \
+    libegl1 libegl1:i386 \
+    libgles2 libgles2:i386 \
     pkg-config \
     libglvnd-dev libglvnd-dev:i386 \
-	libgl1-mesa-dev libgl1-mesa-dev:i386 \
-	libegl1-mesa-dev libegl1-mesa-dev:i386 \
-	libgles2-mesa-dev libgles2-mesa-dev:i386 \
+    libgl1-mesa-dev libgl1-mesa-dev:i386 \
+    libegl1-mesa-dev libegl1-mesa-dev:i386 \
+    libgles2-mesa-dev libgles2-mesa-dev:i386 \
     mesa-utils
 
 # Common Development
@@ -45,7 +45,8 @@ apt install -y \
     nano \
     libfreeimage-dev \
     libsdl2-dev \
-    libfreetype6-dev
+    libfreetype6-dev \
+    libjemalloc-dev
 
 # Video, VLC, ffmpeg, OpenCV 
 apt install -y \
