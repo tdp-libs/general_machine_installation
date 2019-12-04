@@ -34,6 +34,14 @@ ln -snf /lib/systemd/system/graphical.target /etc/systemd/system/default.target
 
 ```
 
+## NVIDIA Settings
+Change ```X Server Display Configuration --> Advanced --> Force Full Composition Pipeline``` and save to ```/etc/X11/xorg.conf.d/11-nvidia-settings.conf``` as root.
+```
+su -
+nvidia-settings
+
+```
+
 # Install docker
 Optional step to install NVIDIA docker.
 
