@@ -1,14 +1,14 @@
 #!/bin/bash
 set -xe
 
-apt update -y
+apt-get update -y
 
 export DEBIAN_FRONTEND=noninteractive
 
 # NVIDIA OpenGL
 dpkg --add-architecture i386
-apt update -y
-apt install -y --no-install-recommends \
+apt-get update -y
+apt-get install -y --no-install-recommends \
     libxau6 libxau6:i386 \
     libxdmcp6 libxdmcp6:i386 \
     libxcb1 libxcb1:i386 \
@@ -27,7 +27,7 @@ apt install -y --no-install-recommends \
     mesa-utils
 
 # Common Development
-apt install -y \
+apt-get install -y \
     software-properties-common \
     apt-transport-https \
     build-essential \
@@ -49,7 +49,7 @@ apt install -y \
     libjemalloc-dev
 
 # Video, VLC, ffmpeg, OpenCV 
-apt install -y \
+apt-get install -y \
     freeglut3 \
     freeglut3-dev \
     libxi-dev \
@@ -85,8 +85,8 @@ apt install -y \
     libpulse-mainloop-glib0
 
 echo "deb http://security.ubuntu.com/ubuntu xenial-security main" | tee -a /etc/apt/sources.list
-apt update -y
-apt install -y libjasper-dev
+apt-get update -y
+apt-get install -y libjasper-dev
 
 # MKL
 # https://software.intel.com/en-us/articles/installing-intel-free-libs-and-python-apt-repo
@@ -94,7 +94,7 @@ wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-20
 apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
 wget https://apt.repos.intel.com/setup/intelproducts.list -O /etc/apt/sources.list.d/intelproducts.list
 apt-get update
-apt install -y \
+apt-get install -y \
     intel-mkl-2019.4-070 \
     intel-ipp-2019.4-070 \
     intel-tbb-2019.6-070 \
@@ -102,7 +102,7 @@ apt install -y \
     intel-mpi-2019.4-070
 
 # https://askubuntu.com/questions/508503/whats-the-development-package-for-qt5-in-14-04
-apt install -y \
+apt-get install -y \
     gedit \
     qtcreator \
     qt5-default \
@@ -121,6 +121,6 @@ apt install -y \
     qml-module-qtlocation \
     qtlocation5-dev
 
-apt autoremove -y
+apt-get autoremove -y
 rm -f GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
 rm -rf /var/lib/apt/lists/*

@@ -1,14 +1,51 @@
 #!/bin/bash
 set -xe
 
-apt update -y
-
 export DEBIAN_FRONTEND=noninteractive
+
+apt-get update -y
+
+apt-get install -y --no-install-recommends \
+    sudo \
+    gnupg2 \
+    curl \
+    ca-certificates
+
+curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1810/x86_64/7fa2af80.pub | apt-key add -
+echo "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1810/x86_64 /" > /etc/apt/sources.list.d/cuda.list
+echo "deb https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/nvidia-ml.list
+
+apt-get update -y
+
+# NVIDIA Drivers & CUDA
+apt-get install -y --no-install-recommends \
+    cuda-cudart-10-1=10.1.168-1 \
+    cuda-compat-10-1 \
+    cuda-libraries-10-1=10.1.168-1 \
+    cuda-nvtx-10-1=10.1.168-1 \
+    libcublas10=10.2.0.168-1 \
+    libnccl2=2.5.6-1+cuda10.2 \
+    cuda-nvml-dev-10-1=10.1.168-1 \
+    cuda-command-line-tools-10-1=10.1.168-1 \
+    cuda-libraries-dev-10-1=10.1.168-1 \
+    cuda-minimal-build-10-1=10.1.168-1 \
+    libnccl-dev=2.5.6-1+cuda10.2 \
+    libcublas-dev=10.2.0.168-1 \
+    libcudnn7=7.6.5.32-1+cuda10.1 \
+    libcudnn7-dev=7.6.5.32-1+cuda10.1
+
+#ENV CUDNN_VERSION 7.6.5.32
+#LABEL com.nvidia.cudnn.version="${CUDNN_VERSION}"
+#ENV LIBRARY_PATH /usr/local/cuda/lib64/stubs
+
+apt-mark hold libnccl2
+apt-mark hold libcudnn7 
+ln -s cuda-10.1 /usr/local/cuda && \
 
 # NVIDIA OpenGL
 dpkg --add-architecture i386
-apt update -y
-apt install -y --no-install-recommends \
+apt-get update -y
+apt-get install -y --no-install-recommends \
     libxau6 libxau6:i386 \
     libxdmcp6 libxdmcp6:i386 \
     libxcb1 libxcb1:i386 \
@@ -27,7 +64,7 @@ apt install -y --no-install-recommends \
     mesa-utils
 
 # Common Development
-apt install -y \
+apt-get install -y --no-install-recommends \
     software-properties-common \
     apt-transport-https \
     build-essential \
@@ -49,7 +86,7 @@ apt install -y \
     libjemalloc-dev
 
 # Video, VLC, ffmpeg, OpenCV 
-apt install -y \
+apt-get install -y --no-install-recommends \
     freeglut3 \
     freeglut3-dev \
     libxi-dev \
@@ -85,16 +122,16 @@ apt install -y \
     libpulse-mainloop-glib0
 
 echo "deb http://security.ubuntu.com/ubuntu xenial-security main" | tee -a /etc/apt/sources.list
-apt update -y
-apt install -y libjasper-dev
+apt-get update -y
+apt-get install -y --no-install-recommends libjasper-dev
 
 # MKL
 # https://software.intel.com/en-us/articles/installing-intel-free-libs-and-python-apt-repo
 wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
 apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
 wget https://apt.repos.intel.com/setup/intelproducts.list -O /etc/apt/sources.list.d/intelproducts.list
-apt-get update
-apt install -y \
+apt-get update -y
+apt-get install -y --no-install-recommends \
     intel-mkl-2019.4-070 \
     intel-ipp-2019.4-070 \
     intel-tbb-2019.6-070 \
@@ -102,7 +139,7 @@ apt install -y \
     intel-mpi-2019.4-070
 
 # https://askubuntu.com/questions/508503/whats-the-development-package-for-qt5-in-14-04
-apt install -y \
+apt-get install -y --no-install-recommends \
     gedit \
     qtcreator \
     qt5-default \
@@ -121,6 +158,6 @@ apt install -y \
     qml-module-qtlocation \
     qtlocation5-dev
 
-apt autoremove -y
+apt-get autoremove -y
 rm -f GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
 rm -rf /var/lib/apt/lists/*
