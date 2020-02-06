@@ -48,9 +48,9 @@ su - $1 -c "git config --global core.excludesfile ~/.gitignore"
 dnf install -y inkscape abiword kolourpaint
 
 #It seems to make more sense to use the Gnome spin and then install XFCE
-dnf groupinstall -y "Xfce Desktop"
+#dnf groupinstall -y "Xfce Desktop"
 #And KDE for to get Dolphin
-dnf groupinstall -y "KDE Plasma Workspaces"
+#dnf groupinstall -y "KDE Plasma Workspaces"
 
 #VS Code
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
