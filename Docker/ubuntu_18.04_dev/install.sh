@@ -26,6 +26,8 @@ apt-get install -y --no-install-recommends \
     libgles2-mesa-dev libgles2-mesa-dev:i386 \
     mesa-utils
 
+ln -snf /usr/lib/x86_64-linux-gnu/libcudnn.so /usr/local/cuda/lib64/libcudnn.so
+
 # Common Development
 apt-get install -y \
     software-properties-common \
