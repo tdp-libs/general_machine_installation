@@ -153,3 +153,18 @@ systemctl restart docker
 docker run --rm nvidia/cuda:10.1-base nvidia-smi
 
 ```
+
+### Lock the version of the packages
+```
+dnf install python3-dnf-plugin-versionlock.noarch
+dnf list installed "*docker*"
+dnf versionlock add \
+    docker-ce.x86_64 \
+    docker-ce-cli.x86_64 \
+    docker-compose.noarch \
+    nvidia-docker2.noarch \
+    python3-docker.noarch \
+    python3-docker-pycreds.noarch \
+    python3-dockerpty.noarch
+
+```
