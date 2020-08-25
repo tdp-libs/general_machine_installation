@@ -12,6 +12,7 @@ Run as root and change tom for your user name:
 * [tdp_tools](https://github.com/tdp-libs/tdp_tools)
 * [QtCreator](https://github.com/tdp-libs/general_machine_installation/blob/master/Fedora/QtCreator.md)
 * [Android Studio](https://github.com/tdp-libs/general_machine_installation/blob/master/Fedora/AndroidStudio.md)
+* [Emscripten](https://github.com/tdp-libs/tp_maps_emcc)
 
 
 ## Libraries
