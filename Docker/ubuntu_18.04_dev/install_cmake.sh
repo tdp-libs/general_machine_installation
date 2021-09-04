@@ -3,7 +3,7 @@ set -xe
 
 apt-get update -y
 apt-get install -y libssl-dev
-apt remove -y --purge --auto-remove cmake
+apt-get remove -y --purge --auto-remove cmake
 apt-get autoremove -y
 
 mkdir ~/temp

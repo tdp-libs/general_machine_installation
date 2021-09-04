@@ -12,12 +12,12 @@ COPY install_cmake.sh /root/
 COPY install_boost.sh /root/
 COPY install_qt.sh /root/
 
-RUN bash -c /root/install.sh
+RUN bash -c /root/install.sh 
 RUN bash -c /root/install_cmake.sh
-RUN bash -c /root/install_boost.sh
-RUN bash -c '/root/install_qt.sh 5.9.8'
+#   RUN bash -c /root/install_boost.sh
+#   #RUN bash -c '/root/install_qt.sh 5.9.8'
 RUN bash -c '/root/install_qt.sh 5.12.4'
-RUN bash -c '/root/install_qt.sh 5.13.2'
+#   RUN bash -c '/root/install_qt.sh 5.13.2'
 
 RUN echo "/usr/local/nvidia/lib" >> /etc/ld.so.conf.d/nvidia.conf && \
     echo "/usr/local/nvidia/lib64" >> /etc/ld.so.conf.d/nvidia.conf
