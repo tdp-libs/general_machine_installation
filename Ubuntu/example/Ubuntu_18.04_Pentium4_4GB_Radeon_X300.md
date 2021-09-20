@@ -15,11 +15,11 @@ cd general_machine_installation/Ubuntu/
 
 ```
 
-### Install tdp_tools
+### Install tp_tools
 These are a set of scripts that I use for managing git repos. Basically you need to clone them and add the scripts folder to your PATH.
 
 Follow the instructions here:  
-https://github.com/tdp-libs/tdp_tools
+https://github.com/tdp-libs/tp_tools
 
 ### Install Qt Creator
 Go to the Qt Creator download page, download it, and install.
