@@ -1,3 +1,9 @@
+## Prepare SD Card
+```
+dd if=Fedora-Workstation-Live-x86_64-35-1.2.iso of=/dev/sdg bs=4M conv=fsync
+
+```
+
 ## Common Development Tools
 Run as root and change tom for your user name:
 ```

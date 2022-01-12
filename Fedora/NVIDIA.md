@@ -1,3 +1,39 @@
+## Fedora 35
+```
+dnf update -y
+dnf install -y kernel-devel kernel-headers
+
+```
+
+Add ```GRUB_CMDLINE_LINUX="rd.driver.blacklist=nouveau nouveau.modeset=0"``` to:
+```
+nano /etc/sysconfig/grub
+grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+
+```
+
+```
+chmod +x NVIDIA-Linux-x86_64-495.46.run
+./NVIDIA-Linux-x86_64-495.46.run
+
+```
+
+After rebooting MATE crashes on login but Gnone was working, see: https://forums.developer.nvidia.com/t/495-46-xorg-sigsegv-in-fedora-35-only-on-msi-mpg-trident3-and-only-for-mate-desktop/199076/9
+
+```
+wget https://developer.download.nvidia.com/compute/cuda/11.5.1/local_installers/cuda_11.5.1_495.29.05_linux.run
+chmod +x cuda_11.5.1_495.29.05_linux.run
+./cuda_11.5.1_495.29.05_linux.run
+
+```
+
+Extract cuDNN and copy it:
+```
+cp include/* /usr/local/cuda-11.5/include/.
+cp lib/* /usr/local/cuda-11.5/lib64/.
+
+```
+
 ## NVIDIA Drivers And CUDA
 
 ```
