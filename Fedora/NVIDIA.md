@@ -29,8 +29,8 @@ chmod +x cuda_11.5.1_495.29.05_linux.run
 
 Extract cuDNN and copy it:
 ```
-cp include/* /usr/local/cuda-11.5/include/.
-cp lib/* /usr/local/cuda-11.5/lib64/.
+cp -a include/* /usr/local/cuda-11.5/include/.
+cp -a lib/* /usr/local/cuda-11.5/lib64/.
 
 ```
 
@@ -45,8 +45,8 @@ dnf --disablerepo="rpmfusion-nonfree*" install -y cuda
 
 Download and unpack cudnn from NVIDIA and then:
 ```
-cp cuda/include/* /usr/local/cuda-10.1/include/.
-cp cuda/lib64/* /usr/local/cuda-10.1/lib64/.
+cp -a cuda/include/* /usr/local/cuda-10.1/include/.
+cp -a cuda/lib64/* /usr/local/cuda-10.1/lib64/.
 
 ```
 
