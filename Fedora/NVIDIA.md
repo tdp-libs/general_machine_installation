@@ -1,7 +1,7 @@
 ## Fedora 35
 ```
 dnf update -y
-dnf install -y kernel-devel kernel-headers
+dnf install -y kernel-devel kernel-headers libglvnd-devel
 
 ```
 
