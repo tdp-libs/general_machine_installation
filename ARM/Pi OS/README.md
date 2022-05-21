@@ -93,9 +93,13 @@ sudo apt install -y \
 
 Install Qt
 ```
+
 sudo apt install -y \
     qtcreator \
-    qt5-default \
+    qtbase5-dev \
+    qtchooser \
+    qt5-qmake \
+    qtbase5-dev-tools \
     build-essential
 
 ```
