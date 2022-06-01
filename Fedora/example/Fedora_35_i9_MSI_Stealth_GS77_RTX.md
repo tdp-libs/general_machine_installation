@@ -22,3 +22,13 @@ reboot
 
 ```
 
+### Install Development Dependencies
+```
+mkdir -p projects/general
+cd projects/general
+git clone git@github.com:tdp-libs/general_machine_installation.git
+cd general_machine_installation/Fedora/
+su
+./install.sh tom
+
+```
