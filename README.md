@@ -14,6 +14,7 @@
 * [OpenCV](https://github.com/tdp-libs/tp_pipeline_opencv)
 * [FreeType](https://github.com/tdp-libs/tp_maps_freetype)
 * [SDL2](https://github.com/tdp-libs/tp_maps_sdl)
+* [AVIF](https://github.com/tdp-libs/tp_image_utils_avif)
 
 ## Example Systems
 * [Ubuntu 18.04 Pentium 4](https://github.com/tdp-libs/general_machine_installation/blob/master/Ubuntu/example/Ubuntu_18.04_Pentium4_4GB_Radeon_X300.md)
